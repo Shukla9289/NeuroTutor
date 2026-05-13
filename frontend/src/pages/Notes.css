@@ -1,0 +1,292 @@
+.notes-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: slideInUp 0.6s ease both;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.notes-header h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 25px;
+  height: calc(100vh - 250px);
+  min-height: 600px;
+}
+
+/* Sidebar / List */
+.notes-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.notes-search-wrap {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.notes-search {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.notes-search:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 15%, transparent);
+  outline: none;
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.note-folder {
+  margin-bottom: 15px;
+}
+.folder-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 15px;
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius-sm);
+  margin-bottom: 5px;
+}
+
+.note-item {
+  padding: 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.note-item:hover {
+  background: var(--bg-hover);
+  transform: translateX(5px);
+}
+
+.note-item.active {
+  background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+  border-color: color-mix(in srgb, var(--accent-primary) 20%, transparent);
+}
+
+.note-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background: var(--accent-primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.note-item-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Editor Area */
+.note-editor-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.editor-toolbar {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-title-input {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 60%;
+  outline: none;
+}
+
+.editor-category-tag {
+  background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  color: var(--accent-primary);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.editor-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.note-textarea {
+  padding: 25px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.note-preview {
+  padding: 25px;
+  overflow-y: auto;
+  background: color-mix(in srgb, var(--bg-secondary) 30%, transparent);
+}
+
+.placeholder-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.placeholder-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+.xp-card { 
+  grid-column:1/2; 
+  position:relative; 
+  overflow:hidden; 
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.xp-card::before { content:''; position:absolute; top:-30%; right:-20%; width:180px; height:180px; background:radial-gradient(circle,rgba(255,209,102,.08),transparent 70%); filter:blur(30px); pointer-events:none; animation:float 8s ease-in-out infinite; }
+
+.save-status {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.save-status.show {
+  opacity: 1;
+}
+
+.delete-note-mini {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.note-item:hover .delete-note-mini {
+  opacity: 1;
+}
+
+.delete-note-mini:hover {
+  color: var(--accent-secondary);
+}
+
+/* Markdown styling inside notes */
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  margin: 15px 0 10px;
+  color: var(--accent-primary);
+}
+
+.markdown-content p { margin-bottom: 10px; }
+.markdown-content ul, .markdown-content ol { margin-left: 20px; margin-bottom: 10px; }
+.markdown-content code {
+  background: rgba(108,99,255,0.1);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 1100px) {
+  .notes-grid { grid-template-columns: 1fr; }
+  .editor-main { grid-template-columns: 1fr; }
+  .note-preview { display: none; }
+}
