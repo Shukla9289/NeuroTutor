@@ -1,7 +1,7 @@
 
 # 🧬 NeuroTutor — Full-Stack AI Learning Platform
 
-An intelligent, adaptive learning platform powered by Claude AI.
+An intelligent, adaptive learning platform created by Satyam Shukla.
 Features AI tutoring, adaptive quizzes, code execution, and progress tracking.
 
 Deployment notes are in `DEPLOYMENT.md`. Use `.env.example` for production/Docker environment variables.
